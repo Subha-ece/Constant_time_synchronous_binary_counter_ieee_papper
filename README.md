@@ -1,45 +1,36 @@
-# Constant-Time Synchronous Binary Counter
+# 16-bit Constant-Time Synchronous Binary Counter
 
-## 📌 Mini Project
+## 📌 Project Overview
 
-**Project Title:** Constant-Time Synchronous Binary Counter using Verilog HDL
+This project presents the design and simulation of a **16-bit Constant-Time Synchronous Binary Counter** using **Verilog HDL**.
 
-**Organization:** Embuzz Technologies Private Limited, Salem
+The project was developed as part of an internship mini project at **Embuzz Technologies Private Limited, Salem**.
 
-**Project Type:** Internship Mini Project
+The design is divided into multiple counter blocks to explore a hierarchical approach to synchronous binary counting and carry propagation.
 
-## 📖 Overview
+## 🎯 Objectives
 
-This project focuses on the design and implementation of a 16-bit synchronous binary counter using Verilog HDL.
-
-The architecture explores backward carry propagation and enable signal generation techniques intended to reduce carry-related critical path delay and fan-out.
+- Design a 16-bit synchronous binary counter using Verilog HDL.
+- Divide the counter into smaller functional blocks.
+- Generate and distribute propagation-enable (PEN) signals.
+- Study backward carry propagation in synchronous counters.
+- Simulate and verify the design using ModelSim.
+- Understand the effect of carry propagation and fan-out in counter architectures.
 
 ## 🏗️ Architecture
 
-The 16-bit counter is divided into hierarchical blocks:
+The 16-bit counter is divided into three major sections:
 
-* **C1:** 1-bit counter and PEN1 generator.
-* **C2:** 5-bit backward counter.
-* **PEN2:** Duplicated enable signal generation.
-* **C3:** 10-bit conventional synchronous counter.
-
-## 🛠️ Tools and Technologies
-
-* Verilog HDL
-* ModelSim
-* Digital Logic Design
-* Synchronous Counter Architecture
-
-## 🎯 Learning Outcomes
-
-* Understanding synchronous binary counters.
-* Implementing hierarchical digital designs.
-* Exploring backward carry propagation.
-* Studying fan-out and enable signal distribution.
-* Simulating digital circuits using ModelSim.
-
-## 📂 Project Structure
-
-The repository contains the Verilog source files, testbench, and project documentation.
-
-Completed during internship at Embuzz Technologies Private Limited, Salem.
+```text
+                 16-bit Counter
+                      │
+        ┌─────────────┼─────────────┐
+        │             │             │
+       C1            C2            C3
+     1-bit          5-bit         10-bit
+     Counter     Backward       Conventional
+                  Counter          Counter
+        │             │             │
+      PEN1          PEN2        Counter Output
+        │             │
+        └─────────────┴──────────────
